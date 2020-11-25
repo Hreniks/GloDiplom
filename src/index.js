@@ -12,7 +12,10 @@ import promocode from './modules/promocode';
 import sendForm3 from './modules/sendForm3';
 import sendFormPopUp from './modules/sendFormPopUp';
 import slider from './modules/slider';
+import header from './modules/header';
 
+
+header();
 arrow();
 burgerMenu();
 calc();
