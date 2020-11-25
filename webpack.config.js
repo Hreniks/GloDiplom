@@ -6,7 +6,8 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/dist'
     },
     module: {
         rules: [
@@ -19,7 +20,7 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
+        contentBase: path.join(__dirname),
         compress: true,
         port: 8080,
         hot: true,
