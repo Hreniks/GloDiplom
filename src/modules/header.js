@@ -33,6 +33,7 @@ const header = () => {
 
         const popup = () =>{
             const popup = document.querySelector('#free_visit_form');
+            const thanks = document.querySelector('#thanks');
             const openPopUp = () =>{
                
                 if (target.classList.contains('open-popup')){
@@ -42,6 +43,10 @@ const header = () => {
             openPopUp();
     
             closeElement(popup);
+            
+            if (target.classList.contains('close-btn')){
+                thanks.style.display = 'none';
+            }
         };
 
         popup();
@@ -64,6 +69,7 @@ const header = () => {
         const gift = () => {
             const modalWindow = document.querySelector('#gift');
             const gift = document.querySelector('.fixed-gift');
+            
             if (target.closest('.fixed-gift')) {
                 modalWindow.style.display = 'block';
                 gift.remove();
