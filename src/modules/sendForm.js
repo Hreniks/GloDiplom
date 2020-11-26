@@ -12,7 +12,8 @@ const sendForm = () => {
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-    
+            
+
             
             const formData = new FormData(form);
             const body = {};
@@ -20,9 +21,8 @@ const sendForm = () => {
             formData.forEach((val, key) => {
                 body[key] = val;
             });
-            console.log('body',body);
-            console.log('formData',formData);
             
+            console.log(formData.values());
             statusMessage.style.display = 'block';
             statusMessage.classList = 'statusMessage';
             statusMessage.style.color = (form === cardOrderForm) ? "#000000" : '#ffff';
