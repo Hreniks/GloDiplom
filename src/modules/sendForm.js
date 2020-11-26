@@ -20,6 +20,8 @@ const sendForm = () => {
             formData.forEach((val, key) => {
                 body[key] = val;
             });
+            console.log('body',body);
+            console.log('formData',formData);
             
             statusMessage.style.display = 'block';
             statusMessage.classList = 'statusMessage';
@@ -62,8 +64,7 @@ const sendForm = () => {
                     else
                     statusMessage.textContent = 'Успешно';
                 }
-
-                if (response.status !== 200) {
+                else if (response.status !== 200) {
                     if (form === bannerForm || form === footerForm){
                         statusMessage.remove();
                         thanks.style.display = 'block';

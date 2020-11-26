@@ -75,7 +75,7 @@ const header = () => {
                 gift.remove();
             }
 
-            closeElement(modalWindow);
+           if (modalWindow) closeElement(modalWindow);
         };
         gift();
     });
