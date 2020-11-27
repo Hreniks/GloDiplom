@@ -13,7 +13,7 @@ const sendForm = () => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             
-
+            console.log(form);
             
             const formData = new FormData(form);
             const body = {};
@@ -22,6 +22,7 @@ const sendForm = () => {
                 body[key] = val;
             });
             
+            console.log(body);
             console.log(formData.values());
             statusMessage.style.display = 'block';
             statusMessage.classList = 'statusMessage';
@@ -79,9 +80,7 @@ const sendForm = () => {
                     
                 });
 
-                form.querySelectorAll('input').forEach(item => {
-                    item.value = '';
-                });
+                form.reset();
                
         });
     };
@@ -144,7 +143,7 @@ const sendForm = () => {
     formValid('banner-form');
     submitForm(bannerForm);
     formValid('card_order');
-    submitForm(cardOrderForm);
+    document.querySelector('.card-order-btn').addEventListener('click',submitForm(cardOrderForm));
     formValid('footer_form');
     submitForm(footerForm);
     
