@@ -11,7 +11,7 @@ import modalWindow2 from './modules/modalWindow2';
 import promocode from './modules/promocode';
 import closePopUp from './modules/closePopUp';
 import sendForm from './modules/sendForm';
-import slider from './modules/slider';
+import mainSlider from './modules/mainSlider';
 import header from './modules/header';
 
 
@@ -29,4 +29,4 @@ modalWindow2();
 promocode();
 closePopUp();
 sendForm();
-slider();
+mainSlider();
