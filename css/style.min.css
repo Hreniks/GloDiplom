@@ -1572,7 +1572,7 @@ nav.popup-menu .close-menu-btn img {
 }
 
 .services-slider .slider-arrow {
-    position: absolute;
+    position: relative; 
     top: 75px;
     margin-top: -18px;
     z-index: 100;
@@ -1590,7 +1590,7 @@ nav.popup-menu .close-menu-btn img {
 }
 
 .services-slider .slider-arrow.prev {
-    left: 2px
+    right: 130%;
 }
 
 .services-slider .slider-arrow.next {
