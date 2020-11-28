@@ -1,13 +1,17 @@
 const burgerMenu = () => {
 
-    window.addEventListener('resize', () => {
-        if (document.documentElement.clientWidth < 768) {
-            document.querySelector('.menu-button').classList.remove('hidden-large');
-        }
-        else document.querySelector('.menu-button').classList.add('hidden-large');
-    });
+        const showMenu = () => {
+            if (document.documentElement.clientWidth <= 768) {
+                document.querySelector('.menu-button').classList.remove('hidden-large');
+            }
+            else {
+                
+                document.querySelector('.menu-button').classList.add('hidden-large');
+            }
+        };
 
-
+    window.addEventListener('resize', showMenu);
+    showMenu();
 
     window.addEventListener('scroll', (e) => {
         
@@ -15,6 +19,10 @@ const burgerMenu = () => {
             document.querySelector('.top-menu').style.position = 'fixed';
         }
         else document.querySelector('.top-menu').style.removeProperty('position');
+
+        if (document.querySelector('.menu-button').classList.contains('hidden-large')){
+            document.querySelector('.top-menu').style.removeProperty('position');
+        }
     });
 
     document.body.addEventListener('click', (e) => {
