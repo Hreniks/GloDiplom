@@ -1,6 +1,8 @@
 const gallery = () => {
-    const slider = document.querySelector('.gallery-slider');
+    const slider = document.querySelector('.gallery-wrapper');
     const slide = document.querySelector('.gallery-slider').querySelectorAll('.slide');
+    
+    
     slide.forEach(elem => {
         if (elem !== slide[0])elem.style.display = 'none';
     });
@@ -8,24 +10,46 @@ const gallery = () => {
     
     let currentSlide = 0;
 
+    for (let i = 0; i < slide.length; i++){
+        const li = document.createElement('li');
+        if (i === 0) li.classList.add('slick-active'); 
+        li.classList.add('dot');
+        document.querySelector('.slider-dots').appendChild(li);
+        const button = document.createElement('button');
+        button.classList.add('dot-btn');
+        li.appendChild(button);
+    }
+
     const hidePrevSlide = (elem, index) => {
         elem[index].style.display = 'none';
+       
     };
 
     const showNextSlide = (elem, index) => {
         elem[index].style.display = 'flex';
+        
     };
 
-    const autoPlaySlide = () => {
-       // const dot = document.createElement();
-        hidePrevSlide(slide, currentSlide);
+    const hidePrevDot = (elem,index,dotClass) => {
+        console.log(elem[index]);
+       elem[index].classList.remove(dotClass);
+    };
 
+    const showNextDot = (elem,index,dotClass) => {
+        elem[index].classList.add(dotClass);
+     };
+
+    const autoPlaySlide = () => {
+        const dots = document.querySelectorAll('.dot');
+        hidePrevSlide(slide, currentSlide);
+        hidePrevDot(dots, currentSlide, 'slick-active');
         currentSlide++;
 
         if (currentSlide >= slide.length) {
             currentSlide = 0;
         }
         showNextSlide(slide, currentSlide);
+        showNextDot(dots, currentSlide, 'slick-active');
     };
 
 
@@ -41,18 +65,28 @@ const gallery = () => {
 
     slider.addEventListener('click', (event) => {
         event.preventDefault();
-
+        
+        const dots = document.querySelectorAll('.dot');
         let target = event.target;
-        if (!target.closest('.slider-arrow')) return;
+        if (!target.closest('.slider-arrow, .dot')) return;
 
         hidePrevSlide(slide, currentSlide);
+        hidePrevDot(dots, currentSlide, 'slick-active');
     
 
-        if (target.closest('.next')) {
+        if (target.closest('.gallery-next')) {
             currentSlide++;
         }
-        else if (target.closest('.prev')) {
+        else if (target.closest('.gallery-prev')) {
             currentSlide--;
+        }
+        else if (target.closest('.dot-btn')) {
+            document.querySelectorAll('.dot-btn').forEach((elem, index) => {
+                if (elem === target) {
+                    console.log(target);
+                    currentSlide = index;
+                }
+            });
         }
 
         if (currentSlide >= slide.length) {
@@ -64,23 +98,26 @@ const gallery = () => {
         }
 
         showNextSlide(slide, currentSlide);
-
+        showNextDot(dots, currentSlide, 'slick-active');
     });
 
     slider.addEventListener('mouseover', (event) => {
-        if (event.target.closest('.next') || event.target.closest('.prev') || event.target.closest('.slide')) {
+        if (event.target.closest('.gallery-next') || event.target.closest('.gallery-prev') || event.target.closest('.slide')) {
             stopSlide();
         }
     });
 
 
     slider.addEventListener('mouseout', (event) => {
-        if (event.target.closest('.next') || event.target.closest('.prev')) {
+        if (event.target.closest('.gallery-next') || event.target.closest('.gallery-prev') || event.target.closest('.slide')) {
             startSlide();
         }
     });
 
     startSlide(4000);
+
+
+    
 };
 
 export default gallery;

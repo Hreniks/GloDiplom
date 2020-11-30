@@ -1389,7 +1389,8 @@ nav.popup-menu .close-menu-btn img {
 }
 
 .slider-dots li {
-    float: left
+    float: left;
+    list-style-type: none;
 }
 
 .slider-dots li button {
@@ -1612,6 +1613,7 @@ nav.popup-menu .close-menu-btn img {
 }
 
 #gallery .gallery-slider {
+    position: relative;
     padding-left: 75px;
     padding-right: 75px;
     max-width: 900px;
@@ -1624,7 +1626,11 @@ nav.popup-menu .close-menu-btn img {
     width: 100%
 }
 
-#gallery .gallery-slider .slider-arrow {
+.gallery-wrapper {
+    position: relative;
+}
+
+#gallery .gallery-wrapper .slider-arrow {
     position: absolute;
     /* top: 50%; */
     margin-top: -18px;
@@ -1632,7 +1638,7 @@ nav.popup-menu .close-menu-btn img {
     cursor: pointer
 }
 
-#gallery .gallery-slider .slider-arrow span {
+#gallery .gallery-wrapper .slider-arrow span {
     display: block;
     width: 36px;
     height: 37px;
@@ -1642,20 +1648,24 @@ nav.popup-menu .close-menu-btn img {
     padding-top: 11px
 }
 
-#gallery .gallery-slider .slider-arrow.prev {
-    left: 25%;
-    top: 2375px;
-}
-
-#gallery .gallery-slider .slider-arrow.next {
-    right: 25%;
-    top: 2375px;
-}
 
 #gallery .gallery-slider .slider-dots {
     left: 50%;
     margin-left: -65px;
     bottom: 5%
+}
+
+
+#gallery .gallery-wrapper .gallery-prev {
+    top: 45%;
+    left: 4%;
+    
+}
+
+#gallery .gallery-wrapper .gallery-next {
+    top: 45%;
+    right: 6%;
+    
 }
 
 #cards {
