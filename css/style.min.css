@@ -1571,15 +1571,19 @@ nav.popup-menu .close-menu-btn img {
     margin: 0 auto
 }
 
-.services-slider .slider-arrow {
-    position: relative; 
+.glo-slider{
+    position: relative;
+}
+
+.services-wrapper .slider-arrow {
+    position: absolute; 
     top: 75px;
     margin-top: -18px;
     z-index: 100;
     cursor: pointer
 }
 
-.services-slider .slider-arrow span {
+.services-wrapper .slider-arrow span {
     display: block;
     width: 36px;
     height: 37px;
@@ -1589,12 +1593,14 @@ nav.popup-menu .close-menu-btn img {
     padding-top: 11px
 }
 
-.services-slider .slider-arrow.prev {
-    right: 130%;
+.services-wrapper .services-prev {
+    top: 45%;
+    left: 4%;
 }
 
-.services-slider .slider-arrow.next {
-    right: 2px
+.services-wrapper .services-next {
+    top: 45%;
+    right: 2%;
 }
 
 #gallery {

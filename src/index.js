@@ -13,6 +13,7 @@ import closePopUp from './modules/closePopUp';
 import sendForm from './modules/sendForm';
 import mainSlider from './modules/mainSlider';
 import header from './modules/header';
+import servicesSlider from './modules/servicesSlider';
 
 
 header();
@@ -30,3 +31,13 @@ promocode();
 closePopUp();
 sendForm();
 mainSlider();
+const carousel = new servicesSlider({
+    main: '.services-wrapper',
+    wrap: '.services-slider',
+    next: '.services-next',
+    prev: '.services-prev',
+    slidesToShow: 3,
+    infinity: true
+});
+
+carousel.init();
