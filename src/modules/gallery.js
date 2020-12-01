@@ -31,7 +31,7 @@ const gallery = () => {
     };
 
     const hidePrevDot = (elem,index,dotClass) => {
-        console.log(elem[index]);
+        
        elem[index].classList.remove(dotClass);
     };
 
@@ -83,7 +83,7 @@ const gallery = () => {
         else if (target.closest('.dot-btn')) {
             document.querySelectorAll('.dot-btn').forEach((elem, index) => {
                 if (elem === target) {
-                    console.log(target);
+                    
                     currentSlide = index;
                 }
             });

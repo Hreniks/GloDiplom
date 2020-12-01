@@ -13,7 +13,6 @@ const sendForm = () => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            console.log(form);
             
             const formData = new FormData(form);
             const body = {};
@@ -21,15 +20,20 @@ const sendForm = () => {
             formData.forEach((val, key) => {
                 body[key] = val;
             });
-            
-            console.log(body);
-            console.log(formData.values());
+        
             statusMessage.style.display = 'block';
             statusMessage.classList = 'statusMessage';
             statusMessage.style.color = (form === cardOrderForm) ? "#000000" : '#ffff';
             statusMessage.textContent = 'Идет отправка...';
             statusMessage.style.fontSize = '18px';
             form.appendChild(statusMessage);
+
+            if (form === footerForm){
+                if (!document.querySelector("#footer_leto_schelkovo").checked && !document.querySelector("#footer_leto_mozaika").checked){
+                    statusMessage.textContent = 'Требуется выбрать клуб';
+                    return;
+                }
+            }
             
             if (form.querySelector('.checkbox') && form.querySelector('.checkbox').checked === false){
                 statusMessage.textContent = 'Требуется подтвердить согласие на обработку данных';
@@ -56,14 +60,25 @@ const sendForm = () => {
                         form.parentNode.style.fontSize = '18px';
                         form.parentNode.style.color = 'rgb(255 209 26)';
                         form.parentNode.textContent = 'Успешно';
+                        setTimeout(() => {
+                            if (form === callbackForm){
+                                document.querySelector('#callback_form').style.display = 'none';
+                            }
+                            else document.querySelector('#free-vizit_form').style.display = 'none';
+                        },3000);
                         }
 
                     if (form === bannerForm || form === footerForm){
                         thanks.style.display = 'block';
                         statusMessage.remove();
                     }
-                    else
-                    statusMessage.textContent = 'Успешно';
+                    else{
+                        statusMessage.textContent = 'Успешно';
+                        setTimeout(() => {
+                            statusMessage.textContent = '';
+                        },3000);
+                    }
+                   
                 }
                 else if (response.status !== 200) {
                     if (form === bannerForm || form === footerForm){

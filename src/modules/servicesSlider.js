@@ -26,7 +26,7 @@ export default class servicesSlider {
             this.addArrow();
             this.controlSlider();
         }
-        console.log(this.options.widthSlide);
+        
     }
 
     addGLoClass() {

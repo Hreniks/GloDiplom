@@ -12,19 +12,19 @@ const calc = () => {
     
     cardOrderForm.addEventListener('click', () => {
 
-        if (cardLetoMozaika.checked){
+        if (cardLetoMozaika && cardLetoMozaika.checked){
             if (m1.checked) total.textContent = 2999;
             if (m2.checked) total.textContent = 9900;
             if (m3.checked) total.textContent = 13900;
             if (m4.checked) total.textContent = 19900;
         }
-        else if (cardLetoSchelkovo.checked){
+        else if (cardLetoSchelkovo && cardLetoSchelkovo.checked){
             if (m1.checked) total.textContent = 2999;
             if (m2.checked) total.textContent = 14990;
             if (m3.checked) total.textContent = 21990;
             if (m4.checked) total.textContent = 24990;
         }
-        if (prom.value === 'ТЕЛО2019') total.textContent = Math.ceil(+total.textContent * 0.7);
+        if (prom && prom.value === 'ТЕЛО2019') total.textContent = Math.ceil(+total.textContent * 0.7);
         
     });
 

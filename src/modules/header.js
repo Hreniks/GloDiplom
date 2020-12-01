@@ -3,10 +3,10 @@ const header = () => {
 
     document.body.addEventListener('click', (event) => {
         let target = event.target;
-        console.log(target);
+        
 
         const closeElement = (elem) =>{
-            if (target.classList.contains('overlay') || target.closest('.close-form')){
+            if (target.classList.contains('overlay') || target.closest('.close-form' || target.closest('.close-btn'))){
                 elem.style.display = 'none';   
             }
         };
@@ -47,10 +47,11 @@ const header = () => {
             if (target.classList.contains('close-btn')){
                 thanks.style.display = 'none';
             }
+
         };
 
         popup();
-
+        
 
         const callbackBtn = () =>{
             const btn = document.querySelector('.callback-btn');
@@ -70,14 +71,20 @@ const header = () => {
             const modalWindow = document.querySelector('#gift');
             const gift = document.querySelector('.fixed-gift');
             
+            
+
             if (target.closest('.fixed-gift')) {
                 modalWindow.style.display = 'block';
                 gift.remove();
             }
 
-           if (modalWindow) closeElement(modalWindow);
+            if (modalWindow && target.closest('.close-btn')) document.querySelector("#gift").style.display = 'none';
+           
+
         };
         gift();
+
+        
     });
 };
 
